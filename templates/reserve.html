@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="title">Reserve Seat</h2>
+
+<div class="card mb">
+    <p><strong>Bus ID:</strong> {{ bus[0] }}</p>
+    <p><strong>Destination:</strong> {{ bus[2] }}</p>
+    <p><strong>Departure:</strong> {{ bus[3] }}</p>
+</div>
+
+<form method="post" class="card">
+    <input class="input" name="first_name" placeholder="First Name" required>
+    <input class="input" name="middle_name" placeholder="Middle Name" required>
+    <input class="input" name="last_name" placeholder="Last Name" required>
+    <input class="input" name="phone_number" placeholder="Phone Number" required>
+    <button class="btn btn-success" type="submit">Confirm</button>
+</form>
+{% endblock %}

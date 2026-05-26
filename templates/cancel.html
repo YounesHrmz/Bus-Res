@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="title">Cancel Reservation</h2>
+<form method="post" class="card">
+    <input class="input" name="first_name" placeholder="First Name" required>
+    <input class="input" name="middle_name" placeholder="Middle Name" required>
+    <input class="input" name="last_name" placeholder="Last Name" required>
+    <input class="input" name="phone_number" placeholder="Phone Number" required>
+    <button class="btn btn-danger" type="submit">Cancel</button>
+</form>
+{% endblock %}

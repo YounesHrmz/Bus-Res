@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="title">Add Bus</h2>
+</h3>
+<form method="post" class="card">
+    <input class="input" name="capacity" placeholder="Capacity  (25-35)" required>
+    <select class="input" name="destination" required>
+    <option value="">Select Destination</option>
+    <option value="Damascus">Damascus</option>
+    <option value="Aleppo">Aleppo</option>
+    <option value="Homs">Homs</option>
+    <option value="Latakia">Latakia</option>
+    <option value="Tartus">Tartus</option>
+    <option value="Deir Ezzor">Deir Ezzor</option>
+    <option value="Hasakah">Hasakah</option>
+    <option value="Raqqa">Raqqa</option>
+    <option value="Sweida">Sweida</option>
+    <option value="Daraa">Daraa</option>
+    <option value="Quneitra">Quneitra</option>
+</select>
+
+    <input class="input" name="departure_time" placeholder="2026-12-10 14:00" required>
+    <button class="btn btn-primary" type="submit">Add Bus</button>
+</form>
+{% endblock %}

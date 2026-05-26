@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="title">Available Buses</h2>
+
+{% if buses %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Destination</th>
+            <th>Capacity</th>
+            <th>Departure</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for bus in buses %}
+        <tr>
+            <td>{{ bus[0] }}</td>
+            <td>{{ bus[2] }}</td>
+            <td>{{ bus[1] }}</td>
+            <td>{{ bus[3] }}</td>
+            <td>
+                <a href="{{ url_for('reserve', bus_id=bus[0]) }}" class="btn btn-success btn-sm">Reserve</a>
+                <form action="{{ url_for('delete_bus', bus_id=bus[0]) }}" method="post" class="inline-form">
+                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No buses found.</p>
+{% endif %}
+{% endblock %}

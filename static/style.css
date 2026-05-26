@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.page {
+    background-color: #111;
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid #333;
+}
+
+.nav-brand {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.nav-right a {
+    margin-left: 0.5rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+.title {
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: #1b1b1b;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.mb {
+    margin-bottom: 1rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #111;
+    color: #f5f5f5;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #4da3ff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    transition:.3s ;
+    font-weight: 600;
+}
+
+.btn-sm {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.btn-primary {
+    background-color: #4da3ff;
+    color: #000;
+}
+
+.btn-success {
+    background-color: #3bb273;
+    color: #000;
+}
+
+.btn-danger {
+    background-color: #e55353;
+    color: #000;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+}
+
+.btn-info {
+    background-color: #3b9ad9;
+    color: #000;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    color: #ffffff;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+    background-color: #1b1b1b;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #333;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.table thead {
+    background-color: #222;
+}
+
+.table tr:nth-child(even) {
+    background-color: #181818;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.alert {
+    padding: 0.6rem 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    background-color: #1f3b2b;
+    color: #9be7a5;
+}
+
+.alert-danger {
+    background-color: #3b1f1f;
+    color: #ff9b9b;
+}
