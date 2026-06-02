@@ -1,12 +1,13 @@
 import os
 import sqlite3
 
-DB_DIR = "database"
-if not os.path.exists(DB_DIR):
-    os.makedirs(DB_DIR)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "database"))
+os.makedirs(DB_DIR, exist_ok=True)
 
 DB_FILE = os.path.join(DB_DIR, "buses.db")
 con = sqlite3.connect(DB_FILE, check_same_thread=False)
+con.execute("PRAGMA foreign_keys = ON")
 cur = con.cursor()
 
 cur.execute("""
@@ -18,10 +19,8 @@ CREATE TABLE IF NOT EXISTS buses (
 )
 """)
 
-cur.execute("DROP TABLE IF EXISTS reservation")
-
 cur.execute("""
-CREATE TABLE reservation (
+CREATE TABLE IF NOT EXISTS reservation (
     Res_id INTEGER PRIMARY KEY AUTOINCREMENT,
     Bus_id INTEGER NOT NULL,
     First_name TEXT NOT NULL,
@@ -35,15 +34,20 @@ CREATE TABLE reservation (
 
 con.commit()
 
+
 def Get_Bus_Time(bus_id):
     cur.execute("SELECT Departure_time FROM buses WHERE Bus_id = ?", (bus_id,))
     result = cur.fetchone()
     return result[0] if result else None
 
+
 def Add_Bus(capacity, destination, departure_time):
-    cur.execute("INSERT INTO buses (Bus_capacity, Bus_destination, Departure_time) VALUES (?, ?, ?)",
-                (capacity, destination, departure_time))
+    cur.execute(
+        "INSERT INTO buses (Bus_capacity, Bus_destination, Departure_time) VALUES (?, ?, ?)",
+        (capacity, destination, departure_time),
+    )
     con.commit()
+
 
 def Del_Bus(bus_id):
     cur.execute("DELETE FROM buses WHERE Bus_id = ?", (bus_id,))
@@ -52,6 +56,7 @@ def Del_Bus(bus_id):
     if cur.fetchone()[0] == 0:
         cur.execute("DELETE FROM sqlite_sequence WHERE name='buses'")
         con.commit()
+
 
 def Show_Buses():
     cur.execute("SELECT * FROM buses")
